@@ -720,7 +720,8 @@ RCT_EXPORT_METHOD(requestMTU:(NSString *)deviceUUID mtu:(NSInteger)mtu callback:
 
     RCTResponseSenderBlock readRSSICallback = [readRSSICallbacks valueForKey:peripheralUUIDString];
     if (readRSSICallback) {
-        readRSSICallback(@[errorStr]);
+        //disabled RSSI callback to prevent duplicate callback issue on RN -Jim Jan 23rd 2018
+        //readRSSICallback(@[errorStr]);
         [readRSSICallbacks removeObjectForKey:peripheralUUIDString];
     }
 
